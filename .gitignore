@@ -1,24 +1,48 @@
 # ============================================
-# XAUUSD DATA
+# XAUUSD AI GRID
 # ============================================
 
-# Do NOT ignore the actual XAUUSD datasets
-# They will be tracked using Git LFS.
+# --------------------------------------------
+# RAW / DOWNLOADED DATA
+# --------------------------------------------
 
-# Ignore temporary/test downloads
+# Temporary downloads
 data/raw/download/
 
-# Ignore the old abandoned feature dataset
+# USD Index raw data is reproducible and very large
+data/raw/usd_index/
+
+# --------------------------------------------
+# GENERATED / INTERMEDIATE DATASETS
+# --------------------------------------------
+
+# Old / abandoned feature datasets
 data/features/
 
-# Ignore generated feature datasets
-# (The final feature dataset can be regenerated from raw/processed data)
+# Large generated feature datasets
 data/processed/xauusd_m1_15m_features.csv
+data/processed/xauusd_m1_15m_features_v2.csv
+data/processed/xauusd_m1_ml_features_v3.csv
+data/processed/xauusd_m1_ml_features_v4_session.csv
+data/processed/xauusd_m1_ml_features_v4_session.csv.bak
 
+# Large generated target datasets
+data/processed/xauusd_m1_horizon_targets.csv
+data/processed/xauusd_m1_dynamic_tb_*.csv
+data/processed/xauusd_m1_session_dynamic_tb_*.csv
+data/processed/xauusd_m1_triple_barrier_*.csv
 
-# ============================================
+# Large combined datasets
+data/processed/xauusd_usd_combined_features_2019_2025.csv
+
+# Session / diagnostic datasets
+data/processed/xauusd_m1_active_segments.csv
+data/processed/xauusd_m1_session_mask.csv
+data/processed/xauusd_m1_flat_run_diagnostic.csv
+
+# --------------------------------------------
 # PYTHON
-# ============================================
+# --------------------------------------------
 
 __pycache__/
 *.py[cod]
@@ -26,51 +50,46 @@ __pycache__/
 *.pyd
 *.so
 
-
-# ============================================
+# --------------------------------------------
 # JUPYTER
-# ============================================
+# --------------------------------------------
 
 .ipynb_checkpoints/
 
-
-# ============================================
+# --------------------------------------------
 # VIRTUAL ENVIRONMENTS
-# ============================================
+# --------------------------------------------
 
 .venv/
 venv/
 env/
 ENV/
 
-
-# ============================================
+# --------------------------------------------
 # CONDA
-# ============================================
+# --------------------------------------------
 
-# Do not commit local Conda environment files
+# The environment file is intentionally maintained separately
+# if needed; do not commit local copies automatically.
 environment.yml
 
-
-# ============================================
+# --------------------------------------------
 # IDE / EDITOR
-# ============================================
+# --------------------------------------------
 
 .vscode/
 .idea/
 
-
-# ============================================
+# --------------------------------------------
 # OPERATING SYSTEM
-# ============================================
+# --------------------------------------------
 
 .DS_Store
 Thumbs.db
 
-
-# ============================================
+# --------------------------------------------
 # MACHINE LEARNING MODELS
-# ============================================
+# --------------------------------------------
 
 *.pt
 *.pth
@@ -81,18 +100,21 @@ Thumbs.db
 *.joblib
 *.pkl
 
-
-# ============================================
+# --------------------------------------------
 # LOGS
-# ============================================
+# --------------------------------------------
 
 *.log
 
-
-# ============================================
+# --------------------------------------------
 # TEMPORARY FILES
-# ============================================
+# --------------------------------------------
 
 *.tmp
 *.temp
 *.swp
+*.bak
+
+# Large reproducible datasets
+data/processed/xauusd_m1_2019_2026_canonical.csv
+data/processed/usd_index_m1_features.csv
